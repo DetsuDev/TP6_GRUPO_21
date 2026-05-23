@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ejercicio1.aspx.cs" Inherits="TP6_GRUPO_21.Ejercicio1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeleccionarProductos.aspx.cs" Inherits="TP6_GRUPO_21.Ejercicio2.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -12,18 +12,20 @@
         <div>
             <asp:GridView ID="gvProductos" runat="server" 
                 AllowPaging="True" 
-                PageSize="10" 
+                PageSize="14" 
                 OnPageIndexChanging="gvProductos_PageIndexChanging" 
                 AutoGenerateColumns="False">
     
                 <Columns>
-                    <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ButtonType="Link" />
+                    <asp:CommandField ShowSelectButton="True" ButtonType="Link" SelectText="Select" />
                     <asp:BoundField DataField="IdProducto" HeaderText="Id Producto" />
                     <asp:BoundField DataField="NombreProducto" HeaderText="Nombre Producto" />
-                    <asp:BoundField DataField="CantidadPorUnidad" HeaderText="Cantidad Por Unidad" />
+                    <asp:BoundField DataField="IdProveedor" HeaderText="Id Proveedor" />
                     <asp:BoundField DataField="PrecioUnidad" HeaderText="Precio Unidad" />
                 </Columns>
             </asp:GridView>
+
+            <asp:HyperLink ID="hlVolver" runat="server" NavigateUrl="Ejercicio2.aspx">Volver al Inicio</asp:HyperLink>
         </div>
     </form>
 </body>

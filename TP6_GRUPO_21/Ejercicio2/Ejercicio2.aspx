@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ejercicio2.aspx.cs" Inherits="TP6_GRUPO_21.Ejercicio2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ejercicio2.aspx.cs" Inherits="TP6_GRUPO_21.Ejercicio2.Ejercicio2" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h2>Inicio</h2>
+            <ul>
+                <li><asp:HyperLink ID="hlSeleccionar" runat="server" NavigateUrl="SeleccionarProductos.aspx">Seleccionar Productos</asp:HyperLink></li>
+                <li><asp:LinkButton ID="lbEliminar" runat="server">Eliminar productos seleccionados</asp:LinkButton></li>
+                <li><asp:HyperLink ID="hlMostrar" runat="server" NavigateUrl="MostrarProductos.aspx">Mostrar Productos</asp:HyperLink></li>
+            </ul>
         </div>
     </form>
 </body>

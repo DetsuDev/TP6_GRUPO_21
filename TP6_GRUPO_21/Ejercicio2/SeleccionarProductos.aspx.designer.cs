@@ -11,7 +11,7 @@ namespace TP6_GRUPO_21.Ejercicio2
 {
 
 
-    public partial class Ejercicio2
+    public partial class WebForm1
     {
 
         /// <summary>
@@ -24,30 +24,21 @@ namespace TP6_GRUPO_21.Ejercicio2
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control hlSeleccionar.
+        /// Control gvProductos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlSeleccionar;
+        protected global::System.Web.UI.WebControls.GridView gvProductos;
 
         /// <summary>
-        /// Control lbEliminar.
+        /// Control hlVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEliminar;
-
-        /// <summary>
-        /// Control hlMostrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlMostrar;
+        protected global::System.Web.UI.WebControls.HyperLink hlVolver;
     }
 }
