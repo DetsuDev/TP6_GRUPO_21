@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +15,7 @@ namespace TP6_GRUPO_21.Ejercicio2
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if (!IsPostBack) { CargarGridView(); }
         }
+
         private void CargarGridView()
         {
             Conexion con = new Conexion();
@@ -26,6 +28,34 @@ namespace TP6_GRUPO_21.Ejercicio2
         {
             gvProductos.PageIndex = e.NewPageIndex;
             CargarGridView();
+        }
+
+        protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow fila = gvProductos.SelectedRow;
+            int idProducto = int.Parse(fila.Cells[1].Text);
+            string nombreProducto = fila.Cells[2].Text;
+            int idProveedor = int.Parse(fila.Cells[3].Text);
+            decimal precioUnidad = decimal.Parse(fila.Cells[4].Text);
+
+            DataTable productosSeleccionados;
+            if (Session["Productos"] == null)
+            {
+                productosSeleccionados = new DataTable();
+                productosSeleccionados.Columns.Add("IdProducto", typeof(int));
+                productosSeleccionados.Columns.Add("NombreProducto", typeof(string));
+                productosSeleccionados.Columns.Add("IdProveedor", typeof(int));
+                productosSeleccionados.Columns.Add("PrecioUnidad", typeof(decimal));
+            }
+            else
+            {
+                productosSeleccionados = (DataTable)Session["Productos"];
+            }
+
+          
+            productosSeleccionados.Rows.Add(idProducto, nombreProducto, idProveedor, precioUnidad);
+            Session["Productos"] = productosSeleccionados;
+            lblProductosAgregados.Text = "Productos agregados: " + nombreProducto;
         }
     }
 }

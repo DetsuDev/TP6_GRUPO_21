@@ -14,6 +14,7 @@
                 AllowPaging="True" 
                 PageSize="14" 
                 OnPageIndexChanging="gvProductos_PageIndexChanging" 
+                OnSelectedIndexChanged="gvProductos_SelectedIndexChanged"
                 AutoGenerateColumns="False">
     
                 <Columns>
@@ -24,6 +25,10 @@
                     <asp:BoundField DataField="PrecioUnidad" HeaderText="Precio Unidad" />
                 </Columns>
             </asp:GridView>
+
+            <br />
+            <asp:Label ID="lblProductosAgregados" runat="server" Text=""></asp:Label>
+            <br /><br />
 
             <asp:HyperLink ID="hlVolver" runat="server" NavigateUrl="Ejercicio2.aspx">Volver al Inicio</asp:HyperLink>
         </div>

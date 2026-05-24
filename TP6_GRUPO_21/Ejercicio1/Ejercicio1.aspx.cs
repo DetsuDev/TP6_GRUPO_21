@@ -11,13 +11,15 @@ namespace TP6_GRUPO_21
     public partial class Ejercicio1 : System.Web.UI.Page
     {
         private Conexion conexion = new Conexion();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack) { 
-                gvProductos.DataSource = conexion.ObtenerTabla("SELECT IdProducto, NombreProducto, CantidadPorUnidad, PrecioUnidad FROM Productos");
-                gvProductos.DataBind();
+            if (!IsPostBack)
+            {
+                CargarGridView();
             }
         }
+
         private void CargarGridView()
         {
             string consulta = "SELECT IdProducto, NombreProducto, CantidadPorUnidad, PrecioUnidad FROM Productos";
@@ -30,6 +32,18 @@ namespace TP6_GRUPO_21
         protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvProductos.PageIndex = e.NewPageIndex;
+            CargarGridView();
+        }
+
+        protected void gvProductos_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvProductos.EditIndex = e.NewEditIndex;
+            CargarGridView();
+        }
+
+        protected void gvProductos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvProductos.EditIndex = -1;
             CargarGridView();
         }
     }

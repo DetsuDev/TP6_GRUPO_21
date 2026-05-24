@@ -14,6 +14,8 @@
                 AllowPaging="True" 
                 PageSize="10" 
                 OnPageIndexChanging="gvProductos_PageIndexChanging" 
+                OnRowEditing="gvProductos_RowEditing"
+                OnRowCancelingEdit="gvProductos_RowCancelingEdit"
                 AutoGenerateColumns="False">
     
                 <Columns>
