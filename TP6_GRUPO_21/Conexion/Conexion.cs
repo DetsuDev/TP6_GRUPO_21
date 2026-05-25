@@ -23,5 +23,16 @@ namespace TP6_GRUPO_21
             sqlConnection.Close();
             return dataTable;
         }
+
+
+        public int EjecutarConsulta(string consultaSQL)
+        {
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(consultaSQL, conn);
+            int filas = (int)cmd.ExecuteNonQuery(); 
+            conn.Close();
+            return filas;
+        }
     }
 }

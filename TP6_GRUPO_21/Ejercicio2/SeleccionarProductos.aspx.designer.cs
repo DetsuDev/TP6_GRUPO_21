@@ -33,6 +33,15 @@ namespace TP6_GRUPO_21.Ejercicio2
         protected global::System.Web.UI.WebControls.GridView gvProductos;
 
         /// <summary>
+        /// Control lblProductosAgregados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProductosAgregados;
+
+        /// <summary>
         /// Control hlVolver.
         /// </summary>
         /// <remarks>
