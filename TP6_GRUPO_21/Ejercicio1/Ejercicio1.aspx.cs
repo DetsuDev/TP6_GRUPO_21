@@ -46,5 +46,20 @@ namespace TP6_GRUPO_21
             gvProductos.EditIndex = -1;
             CargarGridView();
         }
+
+        protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+            string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_it_idProducto")).Text; 
+
+            Conexion consulta = new Conexion();
+            consulta.EjecutarConsulta($"DELETE FROM Productos WHERE IdProducto = " + idProducto );
+            CargarGridView();
+        }
     }
 }

@@ -10,6 +10,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:GridView ID="gvProductosSel" runat="server">
+            </asp:GridView>
+            <br />
             <asp:HyperLink ID="hlVolver" runat="server" NavigateUrl="Ejercicio2.aspx">Volver al Inicio</asp:HyperLink>
         </div>
     </form>
