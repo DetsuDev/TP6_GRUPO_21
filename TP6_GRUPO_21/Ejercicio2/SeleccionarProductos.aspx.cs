@@ -20,8 +20,16 @@ namespace TP6_GRUPO_21.Ejercicio2
         {
             Conexion con = new Conexion();
             string consulta = "SELECT IdProducto, NombreProducto, IdProveedor, PrecioUnidad FROM Productos";
-            gvProductos.DataSource = con.ObtenerTabla(consulta);
-            gvProductos.DataBind();
+            if (Session["tabla"] == null)
+            {
+                Session["tabla"] = con.ObtenerTabla(consulta);
+                gvProductos.DataSource = (DataTable)Session["tabla"];
+                gvProductos.DataBind();
+            }
+            
+            
+            ///gvProductos.DataSource = con.ObtenerTabla(consulta);
+            ///gvProductos.DataBind();
         }
 
         protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)

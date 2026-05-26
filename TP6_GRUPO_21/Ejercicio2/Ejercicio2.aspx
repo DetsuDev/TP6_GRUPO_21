@@ -13,7 +13,7 @@
             <h2>Inicio</h2>
             <ul>
                 <li><asp:HyperLink ID="hlSeleccionar" runat="server" NavigateUrl="SeleccionarProductos.aspx">Seleccionar Productos</asp:HyperLink></li>
-                <li><asp:LinkButton ID="lbEliminar" runat="server">Eliminar productos seleccionados</asp:LinkButton></li>
+                <li><asp:LinkButton ID="lbEliminar" runat="server" OnClick="lbEliminar_Click">Eliminar productos seleccionados</asp:LinkButton></li>
                 <li><asp:HyperLink ID="hlMostrar" runat="server" NavigateUrl="MostrarProductos.aspx">Mostrar Productos</asp:HyperLink></li>
             </ul>
         </div>
