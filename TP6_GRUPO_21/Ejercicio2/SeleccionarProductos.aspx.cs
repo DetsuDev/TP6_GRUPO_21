@@ -20,13 +20,13 @@ namespace TP6_GRUPO_21.Ejercicio2
         {
             Conexion con = new Conexion();
             string consulta = "SELECT IdProducto, NombreProducto, IdProveedor, PrecioUnidad FROM Productos";
-            if (Session["tabla"] == null)
+            if (Session["tabla"] == null) /// si la variable Session["tabla"] no existe, se saca una de la base de datos y se crea un nuevo dataTable
             {
                 Session["tabla"] = con.ObtenerTabla(consulta);
                 gvProductos.DataSource = (DataTable)Session["tabla"];
                 gvProductos.DataBind();
             }
-            else
+            else /// si ya existe, que simplemente se relinkee con la que ya existe
             {
                 gvProductos.DataSource = (DataTable)Session["tabla"];
                 gvProductos.DataBind();
