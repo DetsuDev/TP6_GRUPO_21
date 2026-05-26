@@ -33,29 +33,26 @@ namespace TP6_GRUPO_21.Ejercicio2
         protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow fila = gvProductos.SelectedRow;
-            int idProducto = int.Parse(fila.Cells[1].Text);
-            string nombreProducto = fila.Cells[2].Text;
-            int idProveedor = int.Parse(fila.Cells[3].Text);
-            decimal precioUnidad = decimal.Parse(fila.Cells[4].Text);
 
-            DataTable productosSeleccionados;
+            Producto nuevoProd = new Producto();
+            nuevoProd.IdProducto = int.Parse(fila.Cells[1].Text);
+            nuevoProd.NombreProducto = fila.Cells[2].Text;
+            nuevoProd.IdProveedor = int.Parse(fila.Cells[3].Text);
+            nuevoProd.PrecioUnidad = decimal.Parse(fila.Cells[4].Text);
+
+            List<Producto> listaProductos;
             if (Session["Productos"] == null)
             {
-                productosSeleccionados = new DataTable();
-                productosSeleccionados.Columns.Add("IdProducto", typeof(int));
-                productosSeleccionados.Columns.Add("NombreProducto", typeof(string));
-                productosSeleccionados.Columns.Add("IdProveedor", typeof(int));
-                productosSeleccionados.Columns.Add("PrecioUnidad", typeof(decimal));
+                listaProductos = new List<Producto>();
             }
             else
             {
-                productosSeleccionados = (DataTable)Session["Productos"];
+                listaProductos = (List<Producto>)Session["Productos"];
             }
 
-          
-            productosSeleccionados.Rows.Add(idProducto, nombreProducto, idProveedor, precioUnidad);
-            Session["Productos"] = productosSeleccionados;
-            lblProductosAgregados.Text = "Productos agregados: " + nombreProducto;
+            listaProductos.Add(nuevoProd);
+            Session["Productos"] = listaProductos;
+            lblProductosAgregados.Text = "Productos agregados: " + nuevoProd.NombreProducto;
         }
     }
 }

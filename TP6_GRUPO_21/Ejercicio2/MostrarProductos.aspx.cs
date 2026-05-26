@@ -11,8 +11,11 @@ namespace TP6_GRUPO_21.Ejercicio2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvProductosSel.DataSource = Session["Productos"];
-            gvProductosSel.DataBind();
+            if (!IsPostBack && Session["Productos"] != null)
+            {
+                gvProductosSel.DataSource = (List<Producto>)Session["Productos"];
+                gvProductosSel.DataBind();
+            }
         }
     }
 }

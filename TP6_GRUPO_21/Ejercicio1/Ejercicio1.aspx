@@ -19,25 +19,46 @@
     
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ButtonType="Link" >
-                    <HeaderStyle BackColor="#003399" />
+                        <HeaderStyle BackColor="#003399" />
                     </asp:CommandField>
                     <asp:TemplateField HeaderText="Id Producto">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("IdProducto") %>'></asp:TextBox>
+                            <asp:Label ID="lbl_edit_idProducto" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_it_idProducto" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NombreProducto" HeaderText="Nombre Producto" >
-                    <HeaderStyle BackColor="#003399" ForeColor="White" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="CantidadPorUnidad" HeaderText="Cantidad Por Unidad" >
-                    <HeaderStyle BackColor="#003399" ForeColor="White" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="PrecioUnidad" HeaderText="Precio Unidad" >
-                    <HeaderStyle BackColor="#003399" ForeColor="White" />
-                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="Nombre Producto">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_edit_Nombre" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txt_edit_Nombre" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Nombre" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
+                        </ItemTemplate>
+                        <HeaderStyle BackColor="#003399" ForeColor="White" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cantidad Por Unidad">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_edit_Cantidad" runat="server" Text='<%# Bind("CantidadPorUnidad") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvCantidad" runat="server" ControlToValidate="txt_edit_Cantidad" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Cantidad" runat="server" Text='<%# Bind("CantidadPorUnidad") %>'></asp:Label>
+                        </ItemTemplate>
+                        <HeaderStyle BackColor="#003399" ForeColor="White" />
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Precio Unidad">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_edit_Precio" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="txt_edit_Precio" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Precio" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
+                        </ItemTemplate>
+                        <HeaderStyle BackColor="#003399" ForeColor="White" />
+                    </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
                 <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
