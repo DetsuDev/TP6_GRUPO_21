@@ -62,7 +62,14 @@ namespace TP6_GRUPO_21.Ejercicio2
             {
                 listaProductos = (List<Producto>)Session["Productos"];
             }
-
+            foreach (Producto prod in listaProductos)
+            {
+                if (prod.IdProducto == nuevoProd.IdProducto)
+                {
+                    lblProductosAgregados.Text = "El producto ya fue agregado: " + nuevoProd.NombreProducto;
+                    return;
+                }
+            }
             listaProductos.Add(nuevoProd);
             Session["Productos"] = listaProductos;
             lblProductosAgregados.Text = "Productos agregados: " + nuevoProd.NombreProducto;
