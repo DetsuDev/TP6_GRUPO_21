@@ -15,7 +15,7 @@
                 OnPageIndexChanging="gvProductos_PageIndexChanging" 
                 OnRowEditing="gvProductos_RowEditing"
                 OnRowCancelingEdit="gvProductos_RowCancelingEdit"
-                AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowDeleting="gvProductos_RowDeleting" OnSelectedIndexChanged="gvProductos_SelectedIndexChanged">
+                AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowDeleting="gvProductos_RowDeleting" OnSelectedIndexChanged="gvProductos_SelectedIndexChanged" AutoGenerateSelectButton="True" OnSelectedIndexChanging="gvProductos_SelectedIndexChanging">
     
                 <Columns>
                     <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ButtonType="Link" >
@@ -70,6 +70,11 @@
                 <SortedDescendingCellStyle BackColor="#D6DFDF" />
                 <SortedDescendingHeaderStyle BackColor="#002876" />
             </asp:GridView>
+        </div>
+        <div style="margin-top:30px">
+
+        <asp:Label ID="lblStatus" runat="server"></asp:Label>
+
         </div>
     </form>
 </body>
