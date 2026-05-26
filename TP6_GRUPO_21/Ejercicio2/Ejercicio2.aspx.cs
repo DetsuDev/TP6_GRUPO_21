@@ -20,21 +20,27 @@ namespace TP6_GRUPO_21.Ejercicio2
             if ((Session["tabla"] != null) && (Session["Productos"] != null))
             {
                 DataTable tabla2 = (DataTable)Session["tabla"];
-                DataTable tabla3 = (DataTable)Session["Productos"];
+                List<Producto> tabla3 = (List<Producto>)Session["Productos"];
 
 
                 foreach (DataRow dr in tabla2.Rows)
                 {
-                    foreach(DataRow dr2 in tabla3.Rows)
+                    foreach(var dr2 in tabla3)
                     {
-                        if (dr["NombreProducto"] == dr2["NombreProducto"])
+                        if ((string)dr["NombreProducto"] == dr2.NombreProducto)
                         {
                             dr.Delete();
                             break;
                         }
                     }
                 }
+                tabla2.AcceptChanges();
+
+                Session["tabla"] = tabla2;
+                Session["productos"] = null;
             }
+
+
 
         }
     }

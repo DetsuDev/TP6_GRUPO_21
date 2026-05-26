@@ -13,7 +13,7 @@ namespace TP6_GRUPO_21.Ejercicio2
         protected void Page_Load(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            if (!IsPostBack) { CargarGridView(); }
+            CargarGridView();
         }
 
         private void CargarGridView()
@@ -23,6 +23,11 @@ namespace TP6_GRUPO_21.Ejercicio2
             if (Session["tabla"] == null)
             {
                 Session["tabla"] = con.ObtenerTabla(consulta);
+                gvProductos.DataSource = (DataTable)Session["tabla"];
+                gvProductos.DataBind();
+            }
+            else
+            {
                 gvProductos.DataSource = (DataTable)Session["tabla"];
                 gvProductos.DataBind();
             }
